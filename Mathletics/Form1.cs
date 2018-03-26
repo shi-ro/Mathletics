@@ -71,14 +71,14 @@ namespace Mathletics
 
         public void createProblemset(string name, int points, int problem ,string example, PictureBox pic, string funct, int max, int min)
         {
-            ProblemSet n = new ProblemSet(name, points, example, null, new BasicMultiplication(new ProblemFunction(funct, max, min), problem, points));
+            ProblemSet n = new ProblemSet(name, points, example, null, new Solver(new ProblemFunction(funct, max, min), problem, points));
             problems.Add(n);
             Storage.problemDatabase.Add(name, n);
         }
         
         public void createProblemset(string name, int points, int problem, string example, PictureBox pic, string funct, int[] acceptedValues)
         {
-            ProblemSet n = new ProblemSet(name, points, example, null, new BasicMultiplication(new ProblemFunction(funct, acceptedValues), problem, points));
+            ProblemSet n = new ProblemSet(name, points, example, null, new Solver(new ProblemFunction(funct, acceptedValues), problem, points));
             problems.Add(n);
             Storage.problemDatabase.Add(name, n);
         }

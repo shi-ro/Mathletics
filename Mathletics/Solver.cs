@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 
 namespace SoftDev_2018_Mathletics
 {
-    public partial class BasicMultiplication : Form
+    public partial class Solver : Form
     {
         String inputAns;
         double intAns;
@@ -35,7 +35,7 @@ namespace SoftDev_2018_Mathletics
 
         Regex rgx = new Regex(@"^-?\d+(.\d+)?$", RegexOptions.Compiled);
         
-        public BasicMultiplication(ProblemFunction problemFunction, int problems, int score)
+        public Solver(ProblemFunction problemFunction, int problems, int score)
         {
             this.score = score;
             this.problems = problems;
