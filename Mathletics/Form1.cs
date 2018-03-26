@@ -59,7 +59,7 @@ namespace Mathletics
             createProblemset("Better Multiplication", 5, 10, "5 * 6 = 30", null, "_*_*_", 9, 2);
             createProblemset("Combined Division and Multiplication", 5, 10, "5 * 6 = 30", null, "_*_/_", 9, 2);
             createProblemset("Combined Multiplication and addition", 5, 10, "5 * 6 = 30", null, "_*_+_", 9, 2);
-            createProblemset("Testing Trig", 100, 10, "cos(10)", null, "cos(_)", new int[] {0,30,45,60,90});
+            createProblemset("Testing Trig", 100, 10, "cos(10)", null, "cos(_)", new int[] {0,30,45,60,90,180});
             //problems.Add(new ProblemSet("Simple Addition", 1, "1 + 1 = 2", null, new BasicMultiplication(new ProblemFunction("_+_", 5, 0), "Simple Addition")));
             //problems.Add(new ProblemSet("Simple Subtraction", 1, "2 - 1 = 1", null, new BasicMultiplication(new ProblemFunction("_-_", 10, 0), "Simple Subtraction")));
             //problems.Add(new ProblemSet("Intermediate Addition", 2, "9 + 8 = 17", null, new BasicMultiplication(new ProblemFunction("_+_", 10, 0))));
