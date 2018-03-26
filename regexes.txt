@@ -1,3 +1,7 @@
 //any number		(?:-|)\d+(?:|.\d+)
 
 //trig			(cos|sin|tan|csc|sec|cot)\(((?:-|)\d+(?:|.\d+))\)
+
+//absolute value	\|((?:-|)\d+(?:|.\d+))\|
+
+//exponentials

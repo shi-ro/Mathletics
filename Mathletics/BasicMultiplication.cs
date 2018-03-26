@@ -17,7 +17,7 @@ namespace SoftDev_2018_Mathletics
     public partial class BasicMultiplication : Form
     {
         String inputAns;
-        int intAns;
+        double intAns;
         double correctAns;
         int numTries;
 
@@ -33,7 +33,7 @@ namespace SoftDev_2018_Mathletics
         public ProblemFunction problemFunction;
         ProblemFunctionInstance currentProblem;
 
-        Regex rgx = new Regex(@"^(-|)\d+(|.\d+)$", RegexOptions.Compiled);
+        Regex rgx = new Regex(@"^-?\d+(.\d+)?$", RegexOptions.Compiled);
         
         public BasicMultiplication(ProblemFunction problemFunction, int problems, int score)
         {
@@ -89,7 +89,7 @@ namespace SoftDev_2018_Mathletics
         {
             if (rgx.IsMatch(textBox1.Text))
             {
-                intAns = Int32.Parse(textBox1.Text); 
+                intAns = Double.Parse(textBox1.Text); 
                 if (intAns == correctAns)
                 {
                     combo++;
@@ -163,6 +163,7 @@ namespace SoftDev_2018_Mathletics
             inputAns = "";
             intAns = 0;
             correctAns = currentProblem.result;
+            Console.WriteLine($"=====[Function]=====\nfunc:{currentProblem.problem}\nans :{currentProblem.result}\n====================");
         }
 
         private string formatProblemOutput(string output)
