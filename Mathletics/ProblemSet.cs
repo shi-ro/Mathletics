@@ -15,12 +15,12 @@ namespace Mathletics
         public int score { get; set; }
         public string example { get; set; }
         public PictureBox picture { get; set; }
-        public BasicMultiplication buttonName { get; set; }
+        public Solver buttonName { get; set; }
         public int problems = 10;
 
         public static string path= Directory.GetCurrentDirectory() + @"\Problems.dat";
         
-        public ProblemSet(string problemSetName, int scorePerQuestion, string example, PictureBox picture, BasicMultiplication buttonName)
+        public ProblemSet(string problemSetName, int scorePerQuestion, string example, PictureBox picture, Solver buttonName)
         {
             this.problemSetName = problemSetName;
             this.score = scorePerQuestion;

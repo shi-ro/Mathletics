@@ -66,7 +66,7 @@ namespace Mathletics
                 string[] r = l.Split(':');
                 Console.WriteLine(l);
 
-                ProblemSet newProblemSet = new ProblemSet(r[0], _p(r[1]), r[2], null, new BasicMultiplication(new ProblemFunction(r[3], _p(r[4]), _p(r[5])),_p(r[1]),_p(r[1])));
+                ProblemSet newProblemSet = new ProblemSet(r[0], _p(r[1]), r[2], null, new Solver(new ProblemFunction(r[3], _p(r[4]), _p(r[5])),_p(r[1]),_p(r[1])));
                 problemDatabase.Add(r[0], newProblemSet);
             }
         }

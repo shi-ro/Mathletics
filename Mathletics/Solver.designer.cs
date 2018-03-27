@@ -1,6 +1,6 @@
 ﻿namespace SoftDev_2018_Mathletics
 {
-    partial class BasicMultiplication
+    partial class Solver
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicMultiplication));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Solver));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbl_var1 = new System.Windows.Forms.Label();
             this.btn_enter = new System.Windows.Forms.Button();

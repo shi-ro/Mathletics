@@ -55,19 +55,30 @@ namespace Mathletics
             createProblemset("Better Multiplication", 5, 10, "5 * 6 = 30", null, "_*_*_", 9, 2);
             createProblemset("Combined Division and Multiplication", 5, 10, "5 * 6 = 30", null, "_*_/_", 9, 2);
             createProblemset("Combined Multiplication and addition", 5, 10, "5 * 6 = 30", null, "_*_+_", 9, 2);
+<<<<<<< HEAD
             createProblemset("Testing Trig", 100, 10, "cos(10)", null, "cos(_)", new int[] {0,30,45,60,90});
+=======
+            createProblemset("Testing Trig", 100, 10, "cos(10)", null, "cos(_)", new int[] {0,30,45,60,90,180});
+            //problems.Add(new ProblemSet("Simple Addition", 1, "1 + 1 = 2", null, new BasicMultiplication(new ProblemFunction("_+_", 5, 0), "Simple Addition")));
+            //problems.Add(new ProblemSet("Simple Subtraction", 1, "2 - 1 = 1", null, new BasicMultiplication(new ProblemFunction("_-_", 10, 0), "Simple Subtraction")));
+            //problems.Add(new ProblemSet("Intermediate Addition", 2, "9 + 8 = 17", null, new BasicMultiplication(new ProblemFunction("_+_", 10, 0))));
+            //problems.Add(new ProblemSet("Intermediate Subtraction", 2, "20 - 15 = 5", null, new BasicMultiplication(new ProblemFunction("_-_", 20, 0))));
+            //problems.Add(new ProblemSet("Simple Chained Addition", 3, "1 + 1 + 1 = 3", null, new BasicMultiplication(new ProblemFunction("_+_+_", 10, 1))));
+            //problems.Add(new ProblemSet("Simple Chained Subtraction", 3, "1 - 1 - 2 = -2", null, new BasicMultiplication(new ProblemFunction("_-_-_", 10, 1))));
+            //problems.Add(new ProblemSet("Simple Combined Addition and Subtraction", 3, "1 + 1 - 2 - 1 - 1 + 2 = 0", null, new BasicMultiplication(new ProblemFunction("_+_-_-_+_", 10, 1))));
+>>>>>>> a8ad6291ca6a1607aed9b2d5db93881c1b545c8f
         }
 
         public void createProblemset(string name, int points, int problem ,string example, PictureBox pic, string funct, int max, int min)
         {
-            ProblemSet n = new ProblemSet(name, points, example, null, new BasicMultiplication(new ProblemFunction(funct, max, min), problem, points));
+            ProblemSet n = new ProblemSet(name, points, example, null, new Solver(new ProblemFunction(funct, max, min), problem, points));
             problems.Add(n);
             Storage.problemDatabase.Add(name, n);
         }
         
         public void createProblemset(string name, int points, int problem, string example, PictureBox pic, string funct, int[] acceptedValues)
         {
-            ProblemSet n = new ProblemSet(name, points, example, null, new BasicMultiplication(new ProblemFunction(funct, acceptedValues), problem, points));
+            ProblemSet n = new ProblemSet(name, points, example, null, new Solver(new ProblemFunction(funct, acceptedValues), problem, points));
             problems.Add(n);
             Storage.problemDatabase.Add(name, n);
         }
