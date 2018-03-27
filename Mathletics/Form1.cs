@@ -18,20 +18,16 @@ namespace Mathletics
         Form toOpen;
         List<ProblemSet> problems;
         Dictionary<string, StudentAccount> dictionary { get; set; }
+        Color UI1 = Color.FromArgb(255, 248, 224, 254);
+        Color UI2 = Color.LightGreen;
         public Form1()
         {
             InitializeComponent();
             ifOpen = false;
-
-            //test load problemsets
+            
             problems = new List<ProblemSet>();
             
             dictionary = new Dictionary<string, StudentAccount>();
-
-            //ProblemSet basicMultiplication = new ProblemSet("Basic Multiplication", 5, "2 x 2 = 4", null, new BasicMultiplication(new ProblemFunction("_+_", 10, 1)));
-            //problems.Add(basicMultiplication);
-            //ProblemSet anotherExample = new ProblemSet("Example", 5, "sometihg", null, new BasicMultiplication(new ProblemFunction("(_*_)+_", 100,2)));
-            //problems.Add(anotherExample);
 
             loadDefaultProblemSets();
             if(problems.Count>0)
@@ -60,13 +56,6 @@ namespace Mathletics
             createProblemset("Combined Division and Multiplication", 5, 10, "5 * 6 = 30", null, "_*_/_", 9, 2);
             createProblemset("Combined Multiplication and addition", 5, 10, "5 * 6 = 30", null, "_*_+_", 9, 2);
             createProblemset("Testing Trig", 100, 10, "cos(10)", null, "cos(_)", new int[] {0,30,45,60,90});
-            //problems.Add(new ProblemSet("Simple Addition", 1, "1 + 1 = 2", null, new BasicMultiplication(new ProblemFunction("_+_", 5, 0), "Simple Addition")));
-            //problems.Add(new ProblemSet("Simple Subtraction", 1, "2 - 1 = 1", null, new BasicMultiplication(new ProblemFunction("_-_", 10, 0), "Simple Subtraction")));
-            //problems.Add(new ProblemSet("Intermediate Addition", 2, "9 + 8 = 17", null, new BasicMultiplication(new ProblemFunction("_+_", 10, 0))));
-            //problems.Add(new ProblemSet("Intermediate Subtraction", 2, "20 - 15 = 5", null, new BasicMultiplication(new ProblemFunction("_-_", 20, 0))));
-            //problems.Add(new ProblemSet("Simple Chained Addition", 3, "1 + 1 + 1 = 3", null, new BasicMultiplication(new ProblemFunction("_+_+_", 10, 1))));
-            //problems.Add(new ProblemSet("Simple Chained Subtraction", 3, "1 - 1 - 2 = -2", null, new BasicMultiplication(new ProblemFunction("_-_-_", 10, 1))));
-            //problems.Add(new ProblemSet("Simple Combined Addition and Subtraction", 3, "1 + 1 - 2 - 1 - 1 + 2 = 0", null, new BasicMultiplication(new ProblemFunction("_+_-_-_+_", 10, 1))));
         }
 
         public void createProblemset(string name, int points, int problem ,string example, PictureBox pic, string funct, int max, int min)
@@ -315,11 +304,19 @@ namespace Mathletics
 
         private void ChangedColor1()
         {
-
+           
+            Color nc = Color.FromArgb(255, (int)numericUpDown1.Value, (int)numericUpDown2.Value, (int)numericUpDown3.Value);
+            pictureBox1.BackColor = nc;
+            sampleBack.BackColor = nc;
+            LdrbrdTab.BackColor = nc;
+            ProblemsTab.BackColor = nc;
         }
         private void ChangedColor2()
         {
-
+            Color nc = Color.FromArgb(255, (int)numericUpDown4.Value, (int)numericUpDown5.Value, (int)numericUpDown6.Value);
+            pictureBox2.BackColor = nc;
+            sampleButton.BackColor = nc;
+            start_button.BackColor = nc;
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -350,6 +347,22 @@ namespace Mathletics
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
             ChangedColor2();
+        }
+
+        private void OtherTab_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                foreach (Control c in Extensions.GetAllControls(this))
+                {
+                    c.Font = fontDialog1.Font;
+                }
+            }
         }
     }
 }

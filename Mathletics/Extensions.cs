@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Mathletics
 {
@@ -21,6 +22,21 @@ namespace Mathletics
         public static double Round(this double d, int decimalPlaces)
         {
             return (double)decimal.Round((decimal)d, decimalPlaces, MidpointRounding.AwayFromZero);
+        }
+
+        public static IEnumerable<Control> GetAllControls(Control root)
+        {
+            var stack = new Stack<Control>();
+            stack.Push(root);
+
+            while (stack.Any())
+            {
+                var next = stack.Pop();
+                foreach (Control child in next.Controls)
+                    stack.Push(child);
+
+                yield return next;
+            }
         }
     }
 }

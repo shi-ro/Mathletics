@@ -1,0 +1,177 @@
+Agency FB
+Algerian
+Arial
+Arial Rounded MT
+Bahnschrift
+Baskerville Old Face
+Bauhaus 93
+Bell MT
+Berlin Sans FB
+Bernard MT
+Blackadder ITC
+Bodoni MT
+Bodoni MT Poster
+Book Antiqua
+Bookman Old Style
+Bookshelf Symbol 7
+Bradley Hand ITC
+Britannic
+Broadway
+Brush Script MT
+Caladea
+Calibri
+Californian FB
+Calisto MT
+Cambria
+Cambria Math
+Candara
+Carlito
+Castellar
+Centaur
+Century
+Century Gothic
+Century Schoolbook
+Chiller
+Colonna MT
+Comic Sans MS
+Consolas
+Constantia
+Cooper
+Copperplate Gothic
+Corbel
+Courier New
+Curlz MT
+DejaVu Math TeX Gyre
+DejaVu Sans
+DejaVu Sans Mono
+DejaVu Serif
+Edwardian Script ITC
+Elephant
+EmojiOne Color
+Engravers MT
+Eras ITC
+Felix Titling
+Footlight MT
+Forte
+Franklin Gothic
+Franklin Gothic Book
+Freestyle Script
+French Script MT
+Gabriola
+Garamond
+Gentium Basic
+Gentium Book Basic
+Georgia
+Gigi
+Gill Sans
+Gill Sans MT
+Gloucester MT
+Goudy Old Style
+Goudy Stout
+Haettenschweiler
+Harlow Solid
+Harrington
+High Tower Text
+HoloLens MDL2 Assets
+Impact
+Imprint MT Shadow
+Informal Roman
+Jokerman
+Juice ITC
+Kristen ITC
+Kunstler Script
+Latin
+Liberation Mono
+Liberation Sans
+Liberation Serif
+Linux Biolinum G
+Linux Libertine Display G
+Linux Libertine G
+Lucida Bright
+Lucida Calligraphy
+Lucida Console
+Lucida Fax
+Lucida Handwriting
+Lucida Sans
+Lucida Sans Typewriter
+Lucida Sans Unicode
+Magneto
+Maiandra GD
+Matura MT Script Capitals
+Meiryo
+Meiryo UI
+Microsoft Sans Serif
+Mistral
+Modern No. 20
+Monotype Corsiva
+MS Gothic
+MS Mincho
+MS Outlook
+MS PGothic
+MS PMincho
+MS Reference Sans Serif
+MS Reference Specialty
+MS UI Gothic
+MT Extra
+Niagara Engraved
+Niagara Solid
+OCR A
+Old English Text MT
+Onyx
+Open Sans
+OpenSymbol
+Palace Script MT
+Palatino Linotype
+Papyrus
+Parchment
+Perpetua
+Perpetua Titling MT
+Playbill
+Poor Richard
+Pristina
+PT Serif
+Rage
+Ravie
+Rockwell
+Script MT
+Segoe MDL2 Assets
+Segoe Print
+Segoe Script
+Segoe UI
+Segoe UI Emoji
+Segoe UI Symbol
+Showcard Gothic
+Sitka Banner
+Sitka Display
+Sitka Heading
+Sitka Small
+Sitka Subheading
+Sitka Text
+Snap ITC
+Source Code Pro
+Source Sans Pro
+Stencil
+Sylfaen
+Symbol
+Tahoma
+Tempus Sans ITC
+Times New Roman
+Trebuchet MS
+Tw Cen MT
+UD Digi Kyokasho N-B
+UD Digi Kyokasho NK-B
+UD Digi Kyokasho NK-R
+UD Digi Kyokasho NP-B
+UD Digi Kyokasho NP-R
+UD Digi Kyokasho N-R
+Verdana
+Viner Hand ITC
+Vivaldi
+Vladimir Script
+Webdings
+Wingdings
+Wingdings 2
+Wingdings 3
+Yu Gothic
+Yu Gothic UI
+Yu Mincho
