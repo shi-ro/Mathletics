@@ -16,9 +16,8 @@ namespace Mathletics
         public int min;
         public int[] acceptedValues = null;
         Random rnd = new Random();
-        Regex _trigRegex = new Regex(@"(cos|sin|tan|csc|sec|cot)\(((?:-)?\d+(?:.\d+)?)\)", RegexOptions.Compiled);
-        Regex _absRegex = new Regex(@"\|((?:-)?\d+(?:.\d+)?)\|", RegexOptions.Compiled);
-        private static Microsoft.JScript.Vsa.VsaEngine _engine = Microsoft.JScript.Vsa.VsaEngine.CreateEngine();
+        Regex basicTest = new Regex(@"-?(?:\d+(?:\.\d+)?)[+\-/*%](?:(?:\d+(\.\d+)?)[+\-/*%])*(?:\d+(?:\.\d+)?)", RegexOptions.Compiled);
+
         public ProblemFunction(string function, int max, int min)
         {
             this.function = function;
@@ -50,33 +49,10 @@ namespace Mathletics
                     repl += c;
                 }
             }
-            //run multiple parsing layers
-            string r = _trigRegex.Replace(repl, TrigParse);
-            double ans = BasicParse(r).Round(3);
+            Console.WriteLine("\n\t\t\t[ GENERATING PROBLEM AND SOLUTION ]\n");
+            string ans = Wolf.GetSolution(repl);
+            Console.WriteLine($"[DBG]     : {ans}\n");
             return new ProblemFunctionInstance(repl, ans);
-        }
-
-        public string TrigParse(Match m)
-        {
-            string trgf = m.Groups[1].Value.ToLower();
-            double val = Double.Parse(m.Groups[2].Value).ToRadian();
-            switch (trgf)
-            {
-                case "tan":
-                    return $"{Math.Tan(val)}";
-                case "cos":
-                    return $"{Math.Cos(val)}";
-                case "sin":
-                    return $"{Math.Sin(val)}";
-                case "cot":
-                    return $"{1 / Math.Tan(val)}";
-                case "sec":
-                    return $"{1 / Math.Cos(val)}";
-                case "csc":
-                    return $"{1 / Math.Sin(val)}";
-                default:
-                    return $"!";
-            }
         }
 
         public double BasicParse(string exp)

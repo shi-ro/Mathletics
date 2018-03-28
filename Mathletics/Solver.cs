@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Random;
-using System.IO;
 using Mathletics;
 using System.Text.RegularExpressions;
 
@@ -17,8 +10,8 @@ namespace SoftDev_2018_Mathletics
     public partial class Solver : Form
     {
         String inputAns;
-        double intAns;
-        double correctAns;
+        string intAns;
+        string correctAns;
         int numTries;
 
         int finished = 0;
@@ -40,8 +33,7 @@ namespace SoftDev_2018_Mathletics
             this.score = score;
             this.problems = problems;
             this.problemFunction = problemFunction;
-
-            Console.WriteLine("BasicMultiplication STARTED!");
+            
             InitializeComponent();
 
             btn_enter.FlatStyle = FlatStyle.Flat;
@@ -53,16 +45,15 @@ namespace SoftDev_2018_Mathletics
 
             textBox1.KeyUp += TextBoxKeyUp;
             inputAns = "";
-            intAns = 0;
+            intAns = "";
             numTries = 3;
 
             lbl_notvalid.Hide();
             lbl_Correct.Hide();
             lbl_Incorrect.Text = "";
+            label1.Text = "";
 
             updateProblem();
-            //label1.Text = $"R : {problems - finished}";
-            label1.Text = "";
         }
         private void TextBoxKeyUp(object sender, KeyEventArgs e)
         {
@@ -89,15 +80,13 @@ namespace SoftDev_2018_Mathletics
         {
             if (rgx.IsMatch(textBox1.Text))
             {
-                intAns = Double.Parse(textBox1.Text); 
+                intAns = textBox1.Text; 
                 if (intAns == correctAns)
                 {
                     combo++;
-                    //label1.Text = $"R : {problems - finished}";
-                    //pointsGained += score;
                     Storage.currentUser.score += score;
                     Storage.accounts[Storage.currentUser.name].score = Storage.currentUser.score;
-                    Console.WriteLine($"[CUR] |PTS| - { Storage.accounts[Storage.currentUser.name].score }");
+                    Console.WriteLine($"[UDT] PTS : { Storage.accounts[Storage.currentUser.name].score }");
                     if(combo==1)
                     {
                         lbl_Incorrect.Text = "Correct!";
@@ -134,14 +123,12 @@ namespace SoftDev_2018_Mathletics
             }
             else
             {
-                Console.WriteLine("InputAns: " + inputAns);
                 lbl_Incorrect.Text = "Please input a valid answer";
                 textBox1.Text = "";
             }
         }
         private void addAttemptedProblems(Boolean isCorrect)
         {
-            Console.WriteLine("ADD ATTEMPTED PROBLEMS: " + isCorrect);
             if(isCorrect)
             {
                 String oldAttemptedProblems = attemptedProblems;
@@ -161,9 +148,9 @@ namespace SoftDev_2018_Mathletics
             numTries = 3;
             lbl_var1.Text = formatProblemOutput(currentProblem.problem);
             inputAns = "";
-            intAns = 0;
+            intAns = "";
             correctAns = currentProblem.result;
-            Console.WriteLine($"=====[Function]=====\nfunc:{currentProblem.problem}\nans :{currentProblem.result}\n====================");
+            Console.WriteLine($"\t\t\t[ RECIEVED DATA ]\n\n[DTA] PRB : {currentProblem.problem}\n[DTA] ANS : {currentProblem.result}\n");
         }
 
         private string formatProblemOutput(string output)

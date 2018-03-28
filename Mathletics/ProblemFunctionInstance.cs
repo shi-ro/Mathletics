@@ -9,8 +9,8 @@ namespace Mathletics
     public class ProblemFunctionInstance
     {
         public string problem;
-        public double result;
-        public ProblemFunctionInstance(string problem, double result)
+        public string result;
+        public ProblemFunctionInstance(string problem, string result)
         {
             this.problem = problem;
             this.result = result;

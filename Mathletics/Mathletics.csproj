@@ -80,6 +80,7 @@
     <Compile Include="TeacherForm.designer.cs">
       <DependentUpon>TeacherForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Wolf.cs" />
     <EmbeddedResource Include="Solver.resx">
       <DependentUpon>Solver.cs</DependentUpon>
     </EmbeddedResource>
