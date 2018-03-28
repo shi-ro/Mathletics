@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Mathletics;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace SoftDev_2018_Mathletics
 {
@@ -27,6 +28,8 @@ namespace SoftDev_2018_Mathletics
         ProblemFunctionInstance currentProblem;
 
         Regex rgx = new Regex(@"^-?\d+(.\d+)?$", RegexOptions.Compiled);
+
+        Queue<ProblemFunctionInstance> problemQueue = new Queue<ProblemFunctionInstance>();
         
         public Solver(ProblemFunction problemFunction, int problems, int score)
         {
@@ -123,9 +126,37 @@ namespace SoftDev_2018_Mathletics
             }
             rTxtBx_answers.Text = attemptedProblems;
         }
+        private void generateProblems()
+        {
+            List<ProblemFunctionInstance> list = new List<ProblemFunctionInstance>();
+            for(int i = 0; i < 5; i++)
+            {
+                ProblemFunctionInstance cur = problemFunction.getInstance();
+                list.Add(cur);
+                Console.WriteLine($"\t\t\t[ ASYNC LOAD #{i} ]\n\n[DTA] PRB : {cur.problem}\n[DTA] ANS : {cur.result}\n");
+            }
+            Storage.tempInstanceStorage = list;
+        }
         private void updateProblem()
         {
-            currentProblem = problemFunction.getInstance();
+            if(problemQueue.Count > 0)
+            {
+                currentProblem = problemQueue.Dequeue();
+            }
+            if(problemQueue.Count < 3)
+            {
+                Extensions.RunAsynchronously(generateProblems, () =>
+                {
+                    foreach (ProblemFunctionInstance i in Storage.tempInstanceStorage)
+                    {
+                        problemQueue.Enqueue(i);
+                    }
+                });
+            }
+            if (currentProblem == null)
+            {
+                currentProblem = problemFunction.getInstance();
+            }
             textBox1.Clear();
             numTries = 3;
             lbl_var1.Text = formatProblemOutput(currentProblem.problem);
@@ -163,7 +194,7 @@ namespace SoftDev_2018_Mathletics
 
         private void BasicMultiplication_FormClosed(object sender, EventArgs e)
         {
-            Mathletics.Form1.setIfOpen(false);
+            Form1.setIfOpen(false);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -192,6 +223,15 @@ namespace SoftDev_2018_Mathletics
             label1.Text = "";
 
             updateProblem();
+
+            Console.WriteLine("\n\nASYNC TEST START\n\n");
+            Extensions.RunAsynchronously(generateProblems, () => 
+            {
+                foreach(ProblemFunctionInstance i in Storage.tempInstanceStorage)
+                {
+                    problemQueue.Enqueue(i);
+                }
+            });
         }
         private void lbl_Correct_Click(object sender, EventArgs e)
         {

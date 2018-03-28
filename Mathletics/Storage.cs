@@ -16,6 +16,7 @@ namespace Mathletics
         public static SimpleFileIO ACCIO = new SimpleFileIO(PTHACC);
         public static SimpleFileIO PRBIO = new SimpleFileIO(PTHPRB);
         public static StudentAccount currentUser;
+        public static List<ProblemFunctionInstance> tempInstanceStorage = new List<ProblemFunctionInstance>();
         public static void WriteAccounts()
         {
             //string cr = ACCIO.Read();

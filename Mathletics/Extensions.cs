@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,6 +38,21 @@ namespace Mathletics
 
                 yield return next;
             }
+        }
+        public static void RunAsynchronously(Action method, Action callback)
+        {
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                try
+                {
+                    method();
+                }
+                catch (ThreadAbortException) {  }
+                catch (Exception e)
+                {
+                }
+                callback?.Invoke();
+            });
         }
     }
 }
