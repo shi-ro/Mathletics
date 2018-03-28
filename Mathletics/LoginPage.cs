@@ -18,12 +18,28 @@ namespace Mathletics
         {
             this.mainform = mainform;
             InitializeComponent();
+            txt_name.KeyUp += textBoxKeyUp;
             mainform.Enabled = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void btn_login_Click(object sender, EventArgs e)
+        {
+            enterPressed();
+        }
+
+        private void textBoxKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                enterPressed();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void enterPressed()
         {
             mainform.Enabled = true;
             String sve = txt_name.Text;

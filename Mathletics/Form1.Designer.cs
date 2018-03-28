@@ -20,6 +20,23 @@
             base.Dispose(disposing);
         }
 
+        protected void DisposeComponents()
+        {
+            if (components != null)
+            {
+                components.Dispose();
+            }
+        }
+
+        protected void NowHasConnection()
+        {
+            noConnPic.Dispose();
+            noConnLabel.Dispose();
+            noConnButton.Dispose();
+            this.Form1_Load(this, null);
+            InitializeComponent();
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -569,6 +586,69 @@
         }
 
         #endregion
+
+        #region Mathletics No Internet Form code
+
+        private void InitializeComponentNoConnetion()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.noConnPic = new System.Windows.Forms.PictureBox();
+            this.noConnLabel = new System.Windows.Forms.Label();
+            this.noConnButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // noConnPic
+            // 
+            this.noConnPic.BackColor = System.Drawing.Color.PaleGreen;
+            this.noConnPic.Location = new System.Drawing.Point(12, 12);
+            this.noConnPic.Name = "noConnPic";
+            this.noConnPic.Size = new System.Drawing.Size(525, 248);
+            this.noConnPic.TabIndex = 3;
+            this.noConnPic.TabStop = false;
+            //
+            // noConnLabel
+            // 
+            this.noConnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.noConnLabel.Location = new System.Drawing.Point(12, 263);
+            this.noConnLabel.Name = "noConnLabel";
+            this.noConnLabel.Size = new System.Drawing.Size(525, 13);
+            this.noConnLabel.TabIndex = 1;
+            this.noConnLabel.Text = "Sorry ... unable to connect to the internet. Please check your connection.";
+            this.noConnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // noConnButton
+            // 
+            this.noConnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.noConnButton.Location = new System.Drawing.Point(12, 279);
+            this.noConnButton.Name = "button1";
+            this.noConnButton.Size = new System.Drawing.Size(525, 43);
+            this.noConnButton.TabIndex = 0;
+            this.noConnButton.Text = "Refresh";
+            this.noConnButton.UseVisualStyleBackColor = true;
+            this.noConnButton.Click += new System.EventHandler(this.refreshNC);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(549, 334);
+            this.Controls.Add(this.noConnPic);
+            this.Controls.Add(this.noConnLabel);
+            this.Controls.Add(this.noConnButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "Form1";
+            this.Text = "Mathletics [No connection]";
+            this.Load += new System.EventHandler(this.Form1_Load_NoConnection);
+            ((System.ComponentModel.ISupportInitialize)(this.noConnPic)).EndInit();
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox noConnPic;
+        private System.Windows.Forms.Label noConnLabel;
+        private System.Windows.Forms.Button noConnButton;
 
         private System.Windows.Forms.TabControl MainTabControl;
         private System.Windows.Forms.TabPage ProblemsTab;

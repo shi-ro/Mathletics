@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RemoveThisLater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveThisLater.Designer.cs">
+      <DependentUpon>RemoveThisLater.cs</DependentUpon>
+    </Compile>
     <Compile Include="Solver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
       <DependentUpon>TeacherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Wolf.cs" />
+    <EmbeddedResource Include="RemoveThisLater.resx">
+      <DependentUpon>RemoveThisLater.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Solver.resx">
       <DependentUpon>Solver.cs</DependentUpon>
     </EmbeddedResource>

@@ -35,25 +35,7 @@ namespace SoftDev_2018_Mathletics
             this.problemFunction = problemFunction;
             
             InitializeComponent();
-
-            btn_enter.FlatStyle = FlatStyle.Flat;
-            btn_enter.FlatAppearance.BorderColor = Color.Green;
-            btn_enter.FlatAppearance.BorderSize = 0;
-            btn_enter.BackColor = Color.PaleGreen;
-
-            FormClosed += new FormClosedEventHandler(BasicMultiplication_FormClosed);
-
-            textBox1.KeyUp += TextBoxKeyUp;
-            inputAns = "";
-            intAns = "";
-            numTries = 3;
-
-            lbl_notvalid.Hide();
-            lbl_Correct.Hide();
-            lbl_Incorrect.Text = "";
-            label1.Text = "";
-
-            updateProblem();
+            
         }
         private void TextBoxKeyUp(object sender, KeyEventArgs e)
         {
@@ -192,7 +174,24 @@ namespace SoftDev_2018_Mathletics
         }
         private void BasicMultiplication_Load(object sender, EventArgs e)
         {
-            //this.AcceptButton = btn_enter; //gets rid of sound when enter is pressed //a lie
+            btn_enter.FlatStyle = FlatStyle.Flat;
+            btn_enter.FlatAppearance.BorderColor = Color.Green;
+            btn_enter.FlatAppearance.BorderSize = 0;
+            btn_enter.BackColor = Color.PaleGreen;
+
+            FormClosed += new FormClosedEventHandler(BasicMultiplication_FormClosed);
+
+            textBox1.KeyUp += TextBoxKeyUp;
+            inputAns = "";
+            intAns = "";
+            numTries = 3;
+
+            lbl_notvalid.Hide();
+            lbl_Correct.Hide();
+            lbl_Incorrect.Text = "";
+            label1.Text = "";
+
+            updateProblem();
         }
         private void lbl_Correct_Click(object sender, EventArgs e)
         {

@@ -22,23 +22,56 @@ namespace Mathletics
         Color UI2 = Color.LightGreen;
         public Form1()
         {
-            InitializeComponent();
-            ifOpen = false;
-            
-            problems = new List<ProblemSet>();
-            
-            dictionary = new Dictionary<string, StudentAccount>();
+            bool connected = Wolf.TestConnection();
+            if(!connected)
+            {
+                InitializeComponentNoConnetion();
+            } else
+            {
+                InitializeComponent();
+                ifOpen = false;
 
-            loadDefaultProblemSets();
-            if(problems.Count>0)
-            {
-                loadProblemSet(problems[0]);
-            }
-            for (int i = 0; i < problems.Count(); i++)
-            {
-                addToListView(problems[i]);
+                problems = new List<ProblemSet>();
+
+                dictionary = new Dictionary<string, StudentAccount>();
+
+                loadDefaultProblemSets();
+                if (problems.Count > 0)
+                {
+                    loadProblemSet(problems[0]);
+                }
+                for (int i = 0; i < problems.Count(); i++)
+                {
+                    addToListView(problems[i]);
+                }
             }
         }
+
+        public void refreshNC(object sender, EventArgs e)
+        {
+            if(Wolf.TestConnection())
+            {
+                NowHasConnection();
+                
+                problems = new List<ProblemSet>();
+
+                dictionary = new Dictionary<string, StudentAccount>();
+
+                loadDefaultProblemSets();
+                if (problems.Count > 0)
+                {
+                    loadProblemSet(problems[0]);
+                }
+                for (int i = 0; i < problems.Count(); i++)
+                {
+                    addToListView(problems[i]);
+                }
+            } else
+            {
+
+            }
+        }
+
         public void addProblemsToListView()
         {
             for (int i = 0; i < problems.Count(); i++)
@@ -46,6 +79,7 @@ namespace Mathletics
                 addToListView(problems[i]);
             }
         }
+
         public void loadDefaultProblemSets()
         {
             createProblemset("Multiplication", 5, 10 , "5 * 6 = 30", null, "_*_", 9, 2);
@@ -59,7 +93,6 @@ namespace Mathletics
             createProblemset("Testing Calculus", 1000, 10, "someCalcHere", null, "derivative of x^_ sin _x", 16, 3);
             createProblemset("Testing Calculus 2", 1000, 10, "someCalcHere", null, "indefinite integral of x^2 3sin^3 x dx", 16, 3);
             createProblemset("Percentages", 5, 10, "%_%", null, "what is _% of __ ", 99, 1);
-
         }
 
         public void createProblemset(string name, int points, int problem ,string example, PictureBox pic, string funct, int max, int min)
@@ -294,6 +327,12 @@ namespace Mathletics
             LoginPage loginPage = new LoginPage(this);
             loginPage.Show();
         }
+
+        private void Form1_Load_NoConnection(object sender, EventArgs e)
+        {
+
+        }
+
         private void loadProblemsFromStorage()
         {
             foreach(string s in Storage.problemDatabase.Keys)

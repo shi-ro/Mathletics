@@ -38,5 +38,21 @@ namespace Mathletics
             }
             return result; // return response data
         }
+
+        /// <summary>
+        /// test your connection to api
+        /// </summary>
+        /// <returns>connection status</returns>
+        public static bool TestConnection()
+        {
+            try
+            {
+                GetSolution("1=1");
+                return true;
+            } catch(Exception e)
+            {
+                return false;
+            }
+        }
     }
 }
