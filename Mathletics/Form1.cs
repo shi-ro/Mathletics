@@ -23,7 +23,6 @@ namespace Mathletics
         public Form1()
         {
             bool connected = Wolf.TestConnection();
-            connected = false;
             if(!connected)
             {
                 InitializeComponentNoConnetion();
