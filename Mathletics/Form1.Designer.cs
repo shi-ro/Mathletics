@@ -599,12 +599,15 @@
             // 
             // noConnPic
             // 
-            this.noConnPic.BackColor = System.Drawing.Color.PaleGreen;
+
+            this.noConnPic.ErrorImage = global::Mathletics.Properties.Resources.NoConnection;
+            this.noConnPic.InitialImage = global::Mathletics.Properties.Resources.NoConnection;
             this.noConnPic.Location = new System.Drawing.Point(12, 12);
             this.noConnPic.Name = "noConnPic";
             this.noConnPic.Size = new System.Drawing.Size(525, 248);
             this.noConnPic.TabIndex = 3;
             this.noConnPic.TabStop = false;
+            this.noConnPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             //
             // noConnLabel
             // 

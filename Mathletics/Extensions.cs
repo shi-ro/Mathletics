@@ -39,6 +39,7 @@ namespace Mathletics
                 yield return next;
             }
         }
+
         public static void RunAsynchronously(Action method, Action callback)
         {
             ThreadPool.QueueUserWorkItem(_ =>

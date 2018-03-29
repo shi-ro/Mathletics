@@ -23,9 +23,11 @@ namespace Mathletics
         public Form1()
         {
             bool connected = Wolf.TestConnection();
+            connected = false;
             if(!connected)
             {
                 InitializeComponentNoConnetion();
+                noConnPic.Image = Properties.Resources.NoConnection;
             } else
             {
                 InitializeComponent();
@@ -79,20 +81,21 @@ namespace Mathletics
                 addToListView(problems[i]);
             }
         }
-
+          
         public void loadDefaultProblemSets()
         {
-            createProblemset("Multiplication", 5, 10 , "5 * 6 = 30", null, "_*_", 9, 2);
-            createProblemset("Division", 5, 10, "5 * 6 = 30", null, "_/_", 9, 2);
-            createProblemset("Subtraction", 5, 10, "5 * 6 = 30", null, "_-_", 9, 2);
-            createProblemset("Addition", 5, 10, "5 * 6 = 30", null, "_+_", 9, 2);
-            createProblemset("Better Multiplication", 5, 10, "5 * 6 = 30", null, "_*_*_", 9, 2);
-            createProblemset("Combined Division and Multiplication", 5, 10, "5 * 6 = 30", null, "_*_/_", 9, 2);
-            createProblemset("Combined Multiplication and addition", 5, 10, "5 * 6 = 30", null, "_*_+_", 9, 2);
-            createProblemset("Testing Trig", 100, 10, "cos(10)", null, "cos(_)", new int[] {0,30,45,60,90,180});
-            createProblemset("Testing Calculus", 1000, 10, "someCalcHere", null, "derivative of x^_ sin _x", 16, 3);
-            createProblemset("Testing Calculus 2", 1000, 10, "someCalcHere", null, "indefinite integral of x^2 3sin^3 x dx", 16, 3);
-            createProblemset("Percentages", 5, 10, "%_%", null, "what is _% of __ ", 99, 1);
+            createProblemset(  "Multiplication"                        ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "_*_"                                     ,  9   ,  2  );
+            createProblemset(  "Division"                              ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "_/_"                                     ,  9   ,  2  );
+            createProblemset(  "Subtraction"                           ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "_-_"                                     ,  9   ,  2  );
+            createProblemset(  "Addition"                              ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "_ + _"                                   ,  9   ,  2  );
+            createProblemset(  "WordedAddition"                        ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "add _ and _"                             ,  9   ,  2  );
+            createProblemset(  "Better Multiplication"                 ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "_*_*_"                                   ,  9   ,  2  );
+            createProblemset(  "Combined Division and Multiplication"  ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "_*_/_"                                   ,  9   ,  2  );
+            createProblemset(  "Combined Multiplication and addition"  ,  5     ,  10  , "5 * 6 = 30"    ,  null  ,  "_*_+_"                                   ,  9   ,  2  );
+            createProblemset(  "Testing Trig"                          ,  100   ,  10  , "cos(10)"       ,  null  ,  "cos(_)"                                  ,  new int[] {0,30,45,60,90,180});
+            createProblemset(  "Testing Calculus"                      ,  1000  ,  10  , "someCalcHere"  ,  null  ,  "derivative of x^_ sin _x"                ,  16  ,  3  );
+            createProblemset(  "Testing Calculus 2"                    ,  1000  ,  10  , "someCalcHere"  ,  null  ,  "indefinite integral of x^2 3sin^3 x dx"  ,  16  ,  3  );
+            createProblemset(  "Percentages"                           ,  5     ,  10  , "%_%"           ,  null  ,  "what is _% of __ "                       ,  99  ,  1  );
         }
 
         public void createProblemset(string name, int points, int problem ,string example, PictureBox pic, string funct, int max, int min)
@@ -111,7 +114,7 @@ namespace Mathletics
 
         public static void setIfOpen(Boolean a)
         {
-            //ifOpen = a;
+
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -262,56 +265,6 @@ namespace Mathletics
         public void loginFinished()
         {
             loadLeaderboard();
-            //loadProblemsFromStorage();
-            //addProblemsToListView();
-
-            /*
-            //load leaderboard
-            
-            scores.Add(5);
-            scores.Add(3);
-            scores.Add(7);
-            names.Add("b");
-            names.Add("c");
-            names.Add("a");
-            
-            //Dictionary<string, int> studentData = new Dictionary<string, int>();
-            List<int> scores = new List<int>(); //data right here guys
-            List<string> names = new List<string>();
-            List<StudentAccount> list = Storage.accounts.Values.ToList();
-            foreach (var item in list) //fill the list with data
-            {
-                item.getScore();
-                scores.Add(item.getScore());
-                names.Add(item.name);
-            }
-
-            int largestNumber = 0;
-            List<int> newScores = new List<int>();
-            List<string> newNames = new List<string>();
-
-            while (scores.Count > 0) //sort
-            {
-                for (int i = 0; i < scores.Count; i++)
-                {
-                    if (scores[i] > largestNumber)
-                    {
-                        newScores.Add(largestNumber);
-                        scores.Remove(i);
-
-                        newNames.Add(names[i]);
-                        names.Remove(names[i]);
-                    }
-                }
-            }
-
-            for (int i = 1; i <= scores.Count(); i++)
-            {
-                listView2.Items.Add(i + ".");           //rank
-                listView1.Items.Add(newNames[i - 1] + "");      //name
-                listView3.Items.Add(newScores[i - 1] + "");    //score
-            }
-            */
         }
 
         private void Form1_Load(object sender, EventArgs e)
